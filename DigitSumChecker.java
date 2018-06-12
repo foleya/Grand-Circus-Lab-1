@@ -16,7 +16,6 @@ public class DigitSumChecker {
 	 * to check if the sum of each digit in each place of the two
 	 * integers is equal, printing each calculation, then ultimately
 	 * printing out true or false depending on the result.
-	 * 
 	 */
 	private void checkDigitSums() {
 		/* Declare variables for storing and validating user input */
@@ -29,7 +28,6 @@ public class DigitSumChecker {
 		/*
 		 * Prompt user to enter a positive integer, then validate that
 		 * the user's input is composed of only Arabic numerals (0-9).
-		 * 
 		 */
 		do {
 			System.out.print("Enter a positive integer: ");
