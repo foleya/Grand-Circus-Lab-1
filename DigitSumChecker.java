@@ -117,7 +117,7 @@ public class DigitSumChecker {
 	 * @return boolean
 	 */
 	private boolean checkSumEquivalence(String inputOne, String inputTwo) {
-		/* Create two arrays of strings from user input (two Strings). */
+		/* Create two arrays of strings from the user's inputs */
 		String[] arrayOne = inputOne.split("");
 		String[] arrayTwo = inputTwo.split("");
 
@@ -130,7 +130,7 @@ public class DigitSumChecker {
 		 * Print each calculation for the user.
 		 */
 		for (int i = 0; i < arrayOne.length; i++) {
-			/* using Integer.parseInt to get strings into integers for calculations */
+			/* parse int from string for performing addition */
 			int digitSum = (Integer.parseInt(arrayOne[i])
 							+ Integer.parseInt(arrayTwo[i]));
 			System.out.printf("%s + %s = %s%n", arrayOne[i],
