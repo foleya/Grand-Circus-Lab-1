@@ -18,7 +18,7 @@ public class DigitSumChecker {
 	 * printing out true or false depending on the result.
 	 */
 	private void checkDigitSums() {
-		/* Declare variables for storing and validating user input */
+		/* Variables for reading, storing, and validating user input */
 		Scanner scnr = new Scanner(System.in);
 		String inputOne;
 		String inputTwo;
@@ -29,6 +29,7 @@ public class DigitSumChecker {
 		 * Prompt user to enter a positive integer, then validate that
 		 * the user's input is composed of only Arabic numerals (0-9).
 		 */
+		
 		do {
 			System.out.print("Enter a positive integer: ");
 			inputOne = scnr.nextLine();
@@ -66,12 +67,11 @@ public class DigitSumChecker {
 		 * sum equivalences, printing out the boolean result of that
 		 * method.
 		 */
-		boolean hasFeature = checkSumEquivalence(inputOne, inputTwo);
-		System.out.println(hasFeature);
+		System.out.println(checkSumEquivalence(inputOne, inputTwo));
 	}
 
 	/**
-	 * This helper method is for validating that user input 
+	 * This method is for validating that user input 
 	 * contains only Arabic numerals (0-9). It throws an
 	 * IllegalArgumentException if not.
 	 * 
@@ -86,7 +86,7 @@ public class DigitSumChecker {
 	}
 
 	/**
-	 * This helper method is for validating that the first and second 
+	 * This method is for validating that the first and second 
 	 * user inputs contain the same number of digits (i.e. are the same
 	 * length). It throws an IllegalArgumentException if not.
 	 * 
@@ -130,11 +130,12 @@ public class DigitSumChecker {
 		 * Print each calculation for the user.
 		 */
 		for (int i = 0; i < arrayOne.length; i++) {
-			int placeSum = (Integer.parseInt(arrayOne[i])
+			/* using Integer.parseInt to get strings into integers for calculations */
+			int digitSum = (Integer.parseInt(arrayOne[i])
 							+ Integer.parseInt(arrayTwo[i]));
 			System.out.printf("%s + %s = %s%n", arrayOne[i],
-							  arrayTwo[i], placeSum);
-			set.add(placeSum);
+							  arrayTwo[i], digitSum);
+			set.add(digitSum);
 		}
 		
 		/* 
@@ -144,10 +145,15 @@ public class DigitSumChecker {
 		 */
 		if (set.size() == 1) {
 			System.out.println("All of the sums were equal!");
+			if (arrayOne.length == 1) {
+				System.out.println("Although you did just enter "
+								   + "single digit integers ... "
+								   + "so ... try it with more digits "
+								   + "for a more interesting result!");
+			}
 			return true;
-		} else {
-			System.out.println("Not all of the sums were equal!");
-			return false;
 		}
+		System.out.println("Not all of the sums were equal!");
+		return false;
 	}
 }
