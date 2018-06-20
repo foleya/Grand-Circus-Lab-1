@@ -5,8 +5,7 @@ import java.util.Set;
 public class DigitSumChecker {
 
 	public static void main(String[] args) {
-		DigitSumChecker dsc = new DigitSumChecker();
-		dsc.checkDigitSums();
+		checkDigitSums();
 	}
 
 	/**
@@ -14,10 +13,10 @@ public class DigitSumChecker {
 	 * validates that the inputs are integers composed of Arabic
 	 * numerals, containing equal numbers of digits. Calls a method
 	 * to check if the sum of each digit in each place of the two
-	 * integers is equal, printing each calculation, then ultimately
-	 * printing out true or false depending on the result.
+	 * integers is equal, prints each calculation, then ultimately
+	 * prints out true or false depending on the result.
 	 */
-	private void checkDigitSums() {
+	private static void checkDigitSums() {
 		/* Variables for reading, storing, and validating user input */
 		Scanner scnr = new Scanner(System.in);
 		String inputOne;
@@ -61,13 +60,18 @@ public class DigitSumChecker {
 								  iae.getMessage());
 			}
 		} while (!inputTwoIsValid);
+		scnr.close(); // Close the scanner resource
 		
 		/* 
 		 * With two valid inputs, run the method to check for digit 
-		 * sum equivalences, printing out the boolean result of that
-		 * method.
+		 * sum equivalences, printing true or false based on the
+		 * boolean result.
 		 */
-		System.out.println(checkSumEquivalence(inputOne, inputTwo));
+		if (checkSumEquivalence(inputOne, inputTwo)) {
+			System.out.println("True");
+		} else {
+			System.out.println("False");
+		}
 	}
 
 	/**
@@ -116,7 +120,7 @@ public class DigitSumChecker {
 	 * @param two equal length strings of Arabic numerals (0-9)
 	 * @return boolean
 	 */
-	private boolean checkSumEquivalence(String inputOne, String inputTwo) {
+	private static boolean checkSumEquivalence(String inputOne, String inputTwo) {
 		/* Create two arrays of strings from the user's inputs */
 		String[] arrayOne = inputOne.split("");
 		String[] arrayTwo = inputTwo.split("");
@@ -130,7 +134,7 @@ public class DigitSumChecker {
 		 * Print each calculation for the user.
 		 */
 		for (int i = 0; i < arrayOne.length; i++) {
-			/* parse int from string for performing addition */
+			/* parse ints from strings to perform addition */
 			int digitSum = (Integer.parseInt(arrayOne[i])
 							+ Integer.parseInt(arrayTwo[i]));
 			System.out.printf("%s + %s = %s%n", arrayOne[i],
